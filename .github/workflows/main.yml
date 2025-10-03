@@ -43,6 +43,25 @@ jobs:
 
       - name: Format code
         run: npx prettier --write .
+      - name: ✅ Validate environment variables
+        run: |
+          REQUIRED_VARS=(
+            NEXT_PUBLIC_GISCUS_REPO
+            NEXT_PUBLIC_GISCUS_REPOSITORY_ID
+            NEXT_PUBLIC_GISCUS_CATEGORY
+            NEXT_PUBLIC_GISCUS_CATEGORY_ID
+            EMAILOCTOPUS_API_KEY
+            EMAILOCTOPUS_LIST_ID
+            )
+
+          for VAR_NAME in "${REQUIRED_VARS[@]}"; do
+            if [ -z "${!VAR_NAME}" ]; then
+              echo "❌ ERROR: $VAR_NAME is not set."
+            exit 1
+          else
+            echo "✅ $VAR_NAME is set."
+          fi
+          done
         
       - name: Build site
         run: yarn build
