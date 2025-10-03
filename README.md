@@ -32,6 +32,14 @@ Then edit `.env.local` and fill in your actual values for:
 
 See [.env.example](./.env.example) for detailed instructions on each variable.
 
+4. Verify your environment configuration (optional):
+
+```bash
+npm run check-env
+```
+
+This will validate that all required environment variables are set for your configured providers.
+
 ### Development
 
 Run the development server:
