@@ -1,9 +1,10 @@
-# Inspired from https://github.com/actions/starter-workflows/blob/main/pages/nextjs.yml
+# .github/workflows/github-pages.yml
+
 name: GitHub Pages
 
 on:
   push:
-    branches: master
+    branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -20,37 +21,72 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: yarn
+          cache: 'yarn'
+
       - id: configurepages
         uses: actions/configure-pages@v5
-      - name: Restore cache
+
+      - name: Restore Next.js cache
         uses: actions/cache@v4
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
-      - run: yarn install --immutable
-      - run: npx prettier --write .
-      - run: yarn build
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Format code
+        run: npx prettier --write .
+      - name: ✅ Validate environment variables
+        run: |
+          REQUIRED_VARS=(
+            NEXT_PUBLIC_GISCUS_REPO
+            NEXT_PUBLIC_GISCUS_REPOSITORY_ID
+            NEXT_PUBLIC_GISCUS_CATEGORY
+            NEXT_PUBLIC_GISCUS_CATEGORY_ID
+            EMAILOCTOPUS_API_KEY
+            EMAILOCTOPUS_LIST_ID
+            )
+
+          for VAR_NAME in "${REQUIRED_VARS[@]}"; do
+            if [ -z "${!VAR_NAME}" ]; then
+              echo "❌ ERROR: $VAR_NAME is not set."
+            exit 1
+          else
+            echo "✅ $VAR_NAME is set."
+          fi
+          done
+        
+      - name: Build site
+        run: yarn build
         env:
           EXPORT: 1
           UNOPTIMIZED: 1
           BASE_PATH: ${{ steps.configurepages.outputs.base_path }}
-      - uses: actions/upload-pages-artifact@v3
+          NEXT_PUBLIC_GISCUS_REPO: ${{ secrets.NEXT_PUBLIC_GISCUS_REPO }}
+          NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
+          NEXT_PUBLIC_GISCUS_CATEGORY: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY }}
+          NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
+          EMAILOCTOPUS_API_KEY: ${{ secrets.EMAILOCTOPUS_API_KEY }}
+          EMAILOCTOPUS_LIST_ID: ${{ secrets.EMAILOCTOPUS_LIST_ID }}
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
-  # Deployment job
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
