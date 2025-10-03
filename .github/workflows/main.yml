@@ -51,16 +51,7 @@ jobs:
 
       - name: Format code
         run: npx prettier --write .
-
-      - name: Debug all environment variables (⚠️ Remove for production)
-        run: |
-          echo "GISCUS_REPO=$NEXT_PUBLIC_GISCUS_REPO"
-          echo "GISCUS_REPOSITORY_ID=$NEXT_PUBLIC_GISCUS_REPOSITORY_ID"
-          echo "GISCUS_CATEGORY=$NEXT_PUBLIC_GISCUS_CATEGORY"
-          echo "GISCUS_CATEGORY_ID=$NEXT_PUBLIC_GISCUS_CATEGORY_ID"
-          echo "EMAILOCTOPUS_API_KEY=$EMAILOCTOPUS_API_KEY"
-          echo "EMAILOCTOPUS_LIST_ID=$EMAILOCTOPUS_LIST_ID"
-
+        
       - name: Build site
         run: yarn build
         env:
