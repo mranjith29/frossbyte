@@ -8,6 +8,7 @@ import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
+import ExternalForm from '@/components/ExternalForm'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 const space_grotesk = Space_Grotesk({
@@ -100,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Header />
               <main className="mb-auto">{children}</main>
             </SearchProvider>
+            <ExternalForm />
             <Footer />
           </SectionContainer>
         </ThemeProviders>
