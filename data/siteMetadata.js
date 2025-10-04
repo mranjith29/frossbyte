@@ -63,10 +63,10 @@ const siteMetadata = {
     giscusConfig: {
       // Visit the link below, and follow the steps in the 'configuration' section
       // https://giscus.app/
-      repo: mranjith29/forumFB,
-      repositoryId: R_kgDOP6khYA,
-      category: General,
-      categoryId: DIC_kwDOP6khYM4CwHfg,
+      repo: 'mranjith29/forumFB',
+      repositoryId: 'R_kgDOP6khYA',
+      category: 'General',
+      categoryId: 'DIC_kwDOP6khYM4CwHfg',
       mapping: 'pathname', // supported options: pathname, url, title
       reactions: '1', // Emoji reactions: 1 = enable / 0 = disable
       // Send discussion metadata periodically to the parent window: 1 = enable / 0 = disable
