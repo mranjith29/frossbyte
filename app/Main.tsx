@@ -84,7 +84,7 @@ export default function Home({ posts }) {
         </div>
       )}
       <div className="mt-10 rounded-lg bg-gray-100 dark:bg-gray-800 p-6 text-center">
-  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
     Subscribe to our newsletter
   </h2>
   <p className="text-gray-600 dark:text-gray-300 mb-6">
@@ -96,9 +96,9 @@ export default function Home({ posts }) {
 
   {/* Add the embed script */}
   <Script
-    src="https://eocampaign1.com/form/f31f3300-9fd7-11f0-a648-33ee8290600c.js"
+    src="https://eocampaign1.com/form/277d4368-a0f4-11f0-9232-b11b6b09a9fe.js"
     strategy="afterInteractive"
-    data-form="f31f3300-9fd7-11f0-a648-33ee8290600c"
+    data-form="277d4368-a0f4-11f0-9232-b11b6b09a9fe"
   />
 </div>
       {/* {siteMetadata.newsletter?.provider && (
