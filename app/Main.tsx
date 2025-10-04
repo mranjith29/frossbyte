@@ -83,19 +83,24 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
-      <div>
-      <h1>Subscribe to our newsletter</h1>
+      <div className="mt-10 rounded-lg bg-gray-100 dark:bg-gray-800 p-6 text-center">
+  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+    Subscribe to our newsletter
+  </h2>
+  <p className="text-gray-600 dark:text-gray-300 mb-6">
+    Get the latest posts delivered right to your inbox.
+  </p>
 
-      {/* EmailOctopus form will appear here */}
-      <div id="email-octopus-form"></div>
+  {/* EmailOctopus form will appear here */}
+  <div id="email-octopus-form"></div>
 
-      {/* Add the embed script */}
-      <Script
-        src="https://eocampaign1.com/form/f31f3300-9fd7-11f0-a648-33ee8290600c.js"
-        strategy="afterInteractive"
-        data-form="f31f3300-9fd7-11f0-a648-33ee8290600c"
-      />
-    </div>
+  {/* Add the embed script */}
+  <Script
+    src="https://eocampaign1.com/form/f31f3300-9fd7-11f0-a648-33ee8290600c.js"
+    strategy="afterInteractive"
+    data-form="f31f3300-9fd7-11f0-a648-33ee8290600c"
+  />
+</div>
       {/* {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
