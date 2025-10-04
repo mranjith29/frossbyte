@@ -92,7 +92,6 @@ export default function Home({ posts }) {
     strategy="afterInteractive"
     data-form="277d4368-a0f4-11f0-9232-b11b6b09a9fe"
   />
-</div>
       {/* {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
