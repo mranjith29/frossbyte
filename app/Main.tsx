@@ -83,15 +83,6 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
-  {/* EmailOctopus form will appear here */}
-  <div id="email-octopus-form"></div>
-
-  {/* Add the embed script */}
-  <Script
-    src="https://eocampaign1.com/form/277d4368-a0f4-11f0-9232-b11b6b09a9fe.js"
-    strategy="afterInteractive"
-    data-form="277d4368-a0f4-11f0-9232-b11b6b09a9fe"
-  />
       {/* {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
