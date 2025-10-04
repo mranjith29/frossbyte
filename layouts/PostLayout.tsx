@@ -108,8 +108,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   id="comment"
                 >
                   <Comments slug={slug} />
-                  <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
                 </div>
+                 <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
               )}
             </div>
             <footer>
