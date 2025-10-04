@@ -24,9 +24,11 @@ export default function ExternalForm() {
   }, []);
 
   return (
-    <div className="flex justify-center px-4">
-      <div ref={containerRef} id="form-container" className="w-full max-w-sm p-4">
-        {/* Form will be injected here */}
+  <div className="flex justify-center px-4 pt-6 pb-2 mt-12 mb-6">
+      <div className="w-full max-w-sm">
+        <div className="w-full border-t border-b border-gray-200 dark:border-gray-700 px-3 pt-3 pb-2" ref={containerRef} id="form-container">
+          {/* Form will be injected here */}
+        </div>
       </div>
     </div>
   );
