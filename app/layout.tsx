@@ -1,6 +1,7 @@
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
+import Script from 'next/dist/client/script'
 
 import { Space_Grotesk } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
@@ -102,6 +103,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Header />
               <main className="mb-auto">{children}</main>
             </SearchProvider>
+             <div id="email-octopus-form"></div>
+
+  {/* Add the embed script */}
+  <Script
+    src="https://eocampaign1.com/form/277d4368-a0f4-11f0-9232-b11b6b09a9fe.js"
+    strategy="afterInteractive"
+    data-form="277d4368-a0f4-11f0-9232-b11b6b09a9fe"
+  />
             <Footer />
           </SectionContainer>
         </ThemeProviders>
