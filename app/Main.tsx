@@ -3,6 +3,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 //import NewsletterForm from 'pliny/ui/NewsletterForm'
+import Script from 'next/script';
 
 const MAX_DISPLAY = 5
 
@@ -82,6 +83,19 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
+      <div>
+      <h1>Subscribe to our newsletter</h1>
+
+      {/* EmailOctopus form will appear here */}
+      <div id="email-octopus-form"></div>
+
+      {/* Add the embed script */}
+      <Script
+        src="https://eocampaign1.com/form/f31f3300-9fd7-11f0-a648-33ee8290600c.js"
+        strategy="afterInteractive"
+        data-form="f31f3300-9fd7-11f0-a648-33ee8290600c"
+      />
+    </div>
       {/* {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
