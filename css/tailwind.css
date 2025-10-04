@@ -180,3 +180,18 @@ input:-webkit-autofill:focus {
   display: inline-block;
   vertical-align: middle;
 }
+
+/* EmailOctopus form centering */
+#email-octopus-form {
+  text-align: center;
+}
+
+#email-octopus-form form {
+  margin: 0 auto;
+}
+
+#email-octopus-form input,
+#email-octopus-form button {
+  margin-left: auto;
+  margin-right: auto;
+}
