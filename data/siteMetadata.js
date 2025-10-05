@@ -13,7 +13,7 @@ const siteMetadata = {
   //mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'contact@frossbyte.com',
   github: 'https://github.com',
-  x: 'https://twitter.com/x',
+  x: 'https://x.com/frossbytehere',
   // twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
