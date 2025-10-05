@@ -5,7 +5,7 @@ const siteMetadata = {
   headerTitle: 'FrossByte',
   description: 'Always confused, but curious too,The next-door guy who’s just like you!',
   language: 'en-us',
-  theme: 'system', // system, dark or light
+  theme: 'dark', // system, dark or light
   siteUrl: 'https://frossbyte.com',
   siteRepo: 'https://github.com/',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
